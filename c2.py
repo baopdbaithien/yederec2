@@ -24,24 +24,6 @@ import pygame
 from colorama import init,Fore,Back
 import threading
 
-
-def play_music():
-    # Download the MP3 file
-    response = requests.get('https://files.catbox.moe/ul36c2.mp3')
-    if response.status_code == 200:
-        with open('music.mp3', 'wb') as f:
-            f.write(response.content)
-
-    # Initialize pygame and play the music
-    pygame.mixer.init()
-    pygame.mixer.music.load('music.mp3')
-    pygame.mixer.music.play()
-
-    # Wait for the music to finish playing
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
-
-
 ip= requests.get('https://api.ipify.org').text.strip()
 online= random.randint(1, 153)
 
